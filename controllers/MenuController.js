@@ -10,7 +10,8 @@
         message: "Please choose from an option below: ",
         choices: [
           "Add new contact",
-          "Exit"
+          "Exit",
+          "Get Date"
         ]
       }
     ];
@@ -23,14 +24,16 @@
      switch(response.mainMenuChoice){
      case "Add new contact":
      this.addContact();
-    break;
+      break;
     case "Exit":
       this.exit();
+    case "Get Date":
+      this.getDate();
     default:
       console.log("Invalid input");
       this.main();
-    }
- })
+  }
+})
 .catch((err) => {
   console.log(err);
 });
@@ -48,6 +51,13 @@
 
    exit(){
      console.log("Thanks for using AddressBloc!");
+     process.exit();
+   }
+   getDate(){
+     this.clear();
+     console.log("getDate called");
+     let currentTime= new Date();
+     console.log(currentTime);
      process.exit();
    }
 }
